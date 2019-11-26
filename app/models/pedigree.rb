@@ -19,6 +19,7 @@
 #
 # rubocop:enable Metrics/LineLength, Lint/UnneededCopDisableDirective
 
+# Table : pedigrees
 class Pedigree < ApplicationRecord
   include Raw
 
@@ -28,6 +29,7 @@ class Pedigree < ApplicationRecord
     SPAWNING_DATE: 'Spawning date',
     MOTHER: 'Mother',
     FATHER: 'Father',
-    SEPERATE_CROSS_WITHIN_COHORT: 'Separate crosses within cohort (F = female, M=male)'
+    SEPERATE_CROSS_WITHIN_COHORT: 'Separate crosses
+    within cohort (F = female, M=male)'
   }.freeze
 end

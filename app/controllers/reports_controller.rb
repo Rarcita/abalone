@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Controller for Reports
 class ReportsController < ApplicationController
   def index; end
 

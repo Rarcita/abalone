@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+#   Creates Mortality tracking table
 class CreateMortalityTracking < ActiveRecord::Migration[5.2]
   def change
     create_table :mortality_trackings do |t|

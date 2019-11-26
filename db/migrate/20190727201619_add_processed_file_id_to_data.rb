@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Adds File ID after processing to the data
 class AddProcessedFileIdToData < ActiveRecord::Migration[5.2]
   def change
     add_column :spawning_successes, :processed_file_id, :integer

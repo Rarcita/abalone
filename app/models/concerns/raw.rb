@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Comment Placeholder
 module Raw
   extend ActiveSupport::Concern
 

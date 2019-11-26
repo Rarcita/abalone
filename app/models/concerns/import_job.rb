@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Imports
 module ImportJob
   extend ActiveSupport::Concern
 
@@ -12,13 +13,15 @@ module ImportJob
     full_path = Rails.root.join('storage', filename).to_s
     initialize_processed_file(filename)
     if already_processed?(filename)
-      fail_processed_file('Already processed a file with the same name. Data not imported!')
+      fail_processed_file('Already processed
+      a file with the same name. Data not imported!')
     else
       if validate_headers(full_path)
         import_records(full_path)
         complete_processed_file!
       else
-        Rails.logger.error "Error: #{filename} does not have valid headers. Data not imported!"
+        Rails.logger.error "Error: #{filename} does not
+        have valid headers. Data not imported!"
         fail_processed_file('Does not have valid headers. Data not imported!')
       end
     end
@@ -50,7 +53,8 @@ module ImportJob
       )
       spawning_success.cleanse_data!
       unless spawning_success.save
-        Rails.logger.error "Error: Row #{stats[:row_count] + 2} is not valid. #{attrs}"
+        Rails.logger.error "Error: Row #{stats[:row_count] + 2} is
+        not valid. #{attrs}"
       end
       increment_stats(attrs, spawning_success.persisted?)
     end
@@ -64,7 +68,8 @@ module ImportJob
   def stats
     @stats ||= Hash.new(0)
 
-    @stats[:shl_case_numbers] = Hash.new(0) unless @stats.key?(:shl_case_numbers)
+    @stats[:shl_case_numbers] = Hash.new(0) unless
+      @stats.key?(:shl_case_numbers)
 
     @stats
   end
@@ -86,12 +91,14 @@ module ImportJob
   end
 
   def already_processed?(filename)
-    ProcessedFile.where(status: 'Processed').where(original_filename: original_filename(filename)).count > 0
+    ProcessedFile.where(status: 'Processed').where(original_filename:
+      original_filename(filename)).count > 0
   end
 
   def initialize_processed_file(filename)
     @processed_file = ProcessedFile.create(filename: filename,
-                                           original_filename: original_filename(filename),
+                                           original_filename:
+                                           original_filename(filename),
                                            category: category,
                                            status: 'Running',
                                            job_stats: stats)
@@ -109,7 +116,8 @@ module ImportJob
   end
 
   # Remove the prepended timestamp.
-  # original_filename('1564252385_859395139_spawn_newheaders.xlsx') returns 'spawn_newheaders.xlsx'
+  # original_filename('1564252385_859395139_spawn_newheaders.xlsx') returns
+  # 'spawn_newheaders.xlsx'
   def original_filename(filename)
     /\d+_\d+_(.+)?/.match(filename.to_s)&.captures&.first
   end

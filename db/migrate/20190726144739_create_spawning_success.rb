@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Creates Spawning Succes table
 class CreateSpawningSuccess < ActiveRecord::Migration[5.2]
   def change
     create_table :spawning_successes do |t|

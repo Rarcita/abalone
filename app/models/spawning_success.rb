@@ -19,6 +19,7 @@
 #
 # rubocop:enable Metrics/LineLength, Lint/UnneededCopDisableDirective
 
+# Table: spawning_successes
 class SpawningSuccess < ApplicationRecord
   include Raw
 
@@ -33,7 +34,8 @@ class SpawningSuccess < ApplicationRecord
 
   validates :shl_case_number, presence: true
 
-  # Note: Case is meaningful for spawning_success. n, Y and y mean different things.
+  # Note: Case is meaningful for spawning_success. n,
+  # Y and y mean different things.
   def cleanse_data!
     self.tag = tag.to_s&.strip&.upcase
     self.shl_case_number = shl_case_number.to_s&.strip&.upcase

@@ -26,6 +26,7 @@
 #
 # rubocop:enable Metrics/LineLength, Lint/UnneededCopDisableDirective
 
+# Table : mortality_trackings
 class MortalityTracking < ApplicationRecord
   include Raw
 

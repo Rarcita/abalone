@@ -29,6 +29,7 @@
 #
 # rubocop:enable Metrics/LineLength, Lint/UnneededCopDisableDirective
 
+# Table name: wild_collections
 class WildCollection < ApplicationRecord
   include Raw
 
@@ -47,7 +48,8 @@ class WildCollection < ApplicationRecord
     GONAD_SCORE: 'Gonad Score',
     PREDICTED_SEX: 'Predicted Sex',
     INITIAL_HOLDING_FACILITY: 'Initial holding facility',
-    FINAL_HOLDING_FACILITY_AND_DATE_OF_ARRIVAL: 'Final holding facility & date of arrival',
+    FINAL_HOLDING_FACILITY_AND_DATE_OF_ARRIVAL: 'Final holding
+    facility & date of arrival',
     OTC_TREATMENT_COMPLETION_DATE: 'OTC treatment completion date'
   }.freeze
 end

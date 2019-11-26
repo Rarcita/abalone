@@ -27,6 +27,7 @@
 #
 # rubocop:enable Metrics/LineLength, Lint/UnneededCopDisableDirective
 
+# Table name: tagged_animal_assessments
 class TaggedAnimalAssessment < ApplicationRecord
   include Raw
 
@@ -47,23 +48,30 @@ class TaggedAnimalAssessment < ApplicationRecord
     NOTES: 'Notes'
   }.freeze
 
-  validates :measurement_date, :shl_case_number, :spawning_date, :tag, :length, presence: true
+  validates :measurement_date,
+            :shl_case_number,
+            :spawning_date, :tag,
+            :length, presence: true
   validates :length, numericality: true
 
   def measurement_date=(measurement_date_str)
     return unless measurement_date_str
 
-    write_attribute(:measurement_date, DateTime.strptime(measurement_date_str, '%m/%d/%y'))
+    write_attribute(:measurement_date,
+                    DateTime.strptime(measurement_date_str, '%m/%d/%y'))
   end
 
   def spawning_date=(spawning_date_str)
     return unless spawning_date_str
 
-    write_attribute(:spawning_date, DateTime.strptime(spawning_date_str, '%m/%d/%y'))
+    write_attribute(:spawning_date,
+                    DateTime.strptime(spawning_date_str, '%m/%d/%y'))
   end
 
   def self.lengths_for_measurement(processed_file_id)
-    select(:length).where(processed_file_id: processed_file_id).map { |record| record.length.to_f }
+    select(:length).where(processed_file_id: processed_file_id).map do |record|
+      record.length.to_f
+    end
   end
 
   def cleanse_data!

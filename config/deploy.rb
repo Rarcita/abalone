@@ -17,7 +17,8 @@ set :deploy_to, '/srv/www/abalone'
 
 # You can configure the Airbrussh format using :format_options.
 # These are the defaults.
-# set :format_options, command_output: true, log_file: "log/capistrano.log", color: :auto, truncate: :auto
+# set :format_options, command_output: true, log_file: "log/capistrano.log",
+# color: :auto, truncate: :auto
 
 # Default value for :pty is false
 set :pty, true
@@ -26,8 +27,9 @@ set :pty, true
 append :linked_files, 'config/master.key'
 
 # Default value for linked_dirs is []
-append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/system', '.bundle', 'vendor/bundle', 'public/uploads'
-
+append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets',
+                     'public/system', '.bundle',
+                     'vendor/bundle', 'public/uploads'
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
 
@@ -37,7 +39,8 @@ append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/syst
 # Default value for keep_releases is 5
 # set :keep_releases, 5
 
-# Uncomment the following to require manually verifying the host key before first deploy.
+# Uncomment the following to require manually verifying the host
+# key before first deploy.
 # set :ssh_options, verify_host_key: :secure
 
 # capistrano/rvm

@@ -20,6 +20,7 @@
 #
 # rubocop:enable Metrics/LineLength, Lint/UnneededCopDisableDirective
 
+# Table: population_estimates
 class PopulationEstimate < ApplicationRecord
   include Raw
 

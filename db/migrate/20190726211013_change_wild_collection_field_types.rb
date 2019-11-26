@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Comment Placeholder
 class ChangeWildCollectionFieldTypes < ActiveRecord::Migration[5.2]
   def change
     change_column :wild_collections, :collection_depth, 'numeric USING collection_depth::numeric'

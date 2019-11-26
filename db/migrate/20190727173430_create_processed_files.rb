@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Processed Files
 class CreateProcessedFiles < ActiveRecord::Migration[5.2]
   def change
     create_table :processed_files do |t|

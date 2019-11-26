@@ -5,7 +5,8 @@ require 'rails_helper'
 shared_examples_for 'import job' do
   before(:each) do
     FileUtils.cp(
-      Rails.root.join('db', 'sample_data_files', 'tagged_animal_assessment', filename),
+      Rails.root.join('db', 'sample_data_files',
+                      'tagged_animal_assessment', filename),
       Rails.root.join('storage')
     )
   end
